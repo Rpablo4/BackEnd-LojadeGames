@@ -51,7 +51,6 @@ public class CategoriaModel {
 	public void setProduto(List<ProdutoModel> produto) {
 		this.produto = produto;
 	}
-	
-	
+
 	
 }
