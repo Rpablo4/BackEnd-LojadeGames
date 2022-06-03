@@ -3,6 +3,8 @@ package com.lojadegames.lojadegames.controller;
 import java.util.List;
 import java.util.Optional;
 
+import javax.validation.Valid;
+
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
@@ -40,11 +42,11 @@ public class ProdutoController {
 		return ResponseEntity.ok(repository.findAllByNomeContainingIgnoreCase(nome));
 	}
 	@PostMapping
-	public ResponseEntity<ProdutoModel> createProduto(@RequestBody ProdutoModel produto){
+	public ResponseEntity<ProdutoModel> createProduto(@Valid @RequestBody ProdutoModel produto){
 		return ResponseEntity.status(HttpStatus.CREATED).body(repository.save(produto));
 	}
 	@PutMapping
-	public ResponseEntity<ProdutoModel> updateProduto(@RequestBody ProdutoModel produto){
+	public ResponseEntity<ProdutoModel> updateProduto(@Valid @RequestBody ProdutoModel produto){
 		return ResponseEntity.status(HttpStatus.CREATED).body(repository.save(produto));
 	}
 	@DeleteMapping("{id}")
